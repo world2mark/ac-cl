@@ -1,0 +1,16 @@
+{
+    "name": "ac-www",
+    "version": "0.0.1",
+    "main": ".",
+    "scripts": {
+        "start": "node ."
+    },
+    "dependencies": {
+        "ejs": "latest",
+        "formidable": "latest",
+        "pg": "^8.7.1"
+    },
+    "engines": {
+        "node": "16.13.0"
+    }
+}
