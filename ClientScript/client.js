@@ -120,16 +120,16 @@ $(() => {
             ConnectionString: $('#CRDB_Connection_String').val()
         }).then(dataJSON => {
             SecurityToken = dataJSON.SecurityToken;
-        }).catch(err => {
-            alert(err.message);
-        }).finally(() => {
-            $('#Step2Spinner').css('display', 'none');
-            $('#Step2Header').css('color', 'lightgreen');
-            $('#ConnectDB').prop('disabled', false);
-            $('#check02').css('opacity', 1);
             $('#Step2Contents').css('height', 0);
             $('#Step3Contents').css('height', '23em');
             $('#Step4Contents').css('height', '23em');
+            $('#Step2Header').css('color', 'lightgreen');
+            $('#check02').css('opacity', 1);
+        }).catch(err => {
+            alert(err.message);
+        }).finally(() => {
+            $('#ConnectDB').prop('disabled', false);
+            $('#Step2Spinner').css('display', 'none');
         });
     });
 
