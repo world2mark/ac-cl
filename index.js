@@ -99,17 +99,40 @@ const TheServer = HTTP.createServer(async(req, res) => {
                                 );
                                 const Results = await DBClient.RunSQL(
                                     dataJSON.SecurityToken,
-                                    'CREATE TABLE MZTABLE (MYNAME VARCHAR(32), MYVALUE FLOAT(8));'
+                                    `CREATE TABLE MZTABLE ( \
+                                        MYID UUID PRIMARY KEY DEFAULT gen_random_uuid(), \
+                                        MYNAME VARCHAR(32), \
+                                        MYVALUE FLOAT(8));`
                                 );
                                 res.end(JSON.stringify(Results));
                                 return;
                             }
-                        case 'Create100':
+                        case 'CreateRows':
                             {
                                 let lastResult;
-                                // Note that we add 2 rows at a time (why 50 instead of 100 in the for loop)
+                                // Note that we add 20 rows at a time (50 * 20 = 1000 rows)
                                 for (let count = 0; count < 50; count++) {
-                                    const insertSQL = `insert into MZTABLE VALUES ('Hi${Math.random()}', ${Math.random()}), ('Hi${Math.random()}', ${Math.random()})`;
+                                    const insertSQL = `insert into MZTABLE VALUES \
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()}),
+                                        (DEFAULT, 'Hi${Math.random()}', ${Math.random()})`;
                                     lastResult = await DBClient.RunSQL(
                                         dataJSON.SecurityToken,
                                         insertSQL);

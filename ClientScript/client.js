@@ -160,10 +160,10 @@ $(() => {
 
     $('#CreateRows').click(async() => {
         $('#CreateRows').prop('disabled', true);
-        const spinnerID = CreateSpinner('Create100Div');
+        const spinnerID = CreateSpinner('CreateRowsDiv');
         try {
             const myResults = await FetchPost('/run', {
-                Action: 'Create100',
+                Action: 'CreateRows',
                 SecurityToken: SecurityToken,
                 SQLStmt: $('#SQLStmt').val().trim()
             });
