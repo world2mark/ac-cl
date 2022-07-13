@@ -1,0 +1,35 @@
+<div class="swiper-slide SwiperFrameBright">
+    <script src='/connect_crdb?id=client.js'></script>
+    <h3>connect to your CockroachDB instance</h3>
+    <table class='ContentTable'>
+        <tr>
+            <td>Paste your node.crt (optional)</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea id='ClientRootCRT' class='MyTextArea' placeholder='-----BEGIN CERTIFICATE-----
+...
+...
+...
+-----END CERTIFICATE-----' cols='80' rows='10'></textarea>
+            </td>
+        <tr>
+            <td>CockroachDB Connection String</td>
+        </tr>
+        <tr>
+            <td>
+                <table style='width: 100%'>
+                    <tr>
+                        <td style='width: 80%'><input class='MyTextField' type='text' id='CRDB_Connection_String'
+                                value='<%- ConnectionString %>'
+                                placeholder='eg: postgres://&lt;uid&gt;:&lt;serverURL&gt;:&lt;port&gt;/&lt;dbName&gt;'>
+                        </td>
+                        <td style='width: 20%'><input id='ConnectDB' class='MyButtonField' type='text' value='Connect'
+                                readonly>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

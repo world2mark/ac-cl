@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Cockroach DB Demo Platform</title>
+    <script src='//code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4='
+        crossorigin='anonymous'></script>
+    <link rel='stylesheet' href='https://unpkg.com/swiper@8/swiper-bundle.min.css' />
+    <script src='https://unpkg.com/swiper@8/swiper-bundle.min.js'></script>
+
+    <link rel='stylesheet' href='/?id=mz_spinner.css' />
+    <script src='/?id=mz_spinner.js'></script>
+
+    <script src='/?id=client.js'></script>
+
+    <style>
+        body {
+            font-family: Trebuchet MS;
+        }
+
+        h1 {
+            font-family: Trebuchet MS;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        .swiper {
+            width: 700px;
+            height: 400px;
+        }
+
+        .MyTextArea {
+            font-family: 'Trebuchet MS';
+            font-size: 0.8em;
+            color: #6600cc;
+            background: lightgray;
+            border: none;
+            padding: 0.5em;
+            resize: none;
+        }
+
+        .MyTextField {
+            font-family: 'Trebuchet MS';
+            font-size: 0.8em;
+            color: #6600cc;
+            background: lightgray;
+            border: none;
+            height: 2em;
+            width: 95%;
+            padding: 0.3em;
+        }
+
+        .MyButtonField {
+            font-family: 'Trebuchet MS';
+            font-size: 0.8em;
+            color: darkgreen;
+            border: 2px solid lightslategray;
+            height: 2em;
+            padding: 0.3em;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .MyButtonField:hover {
+            border: 2px solid #6600cc;
+            background: #ffbbff;
+            -webkit-transition: 0.2s ease-in-out;
+            -moz-transition: 0.2s ease-in-out;
+            -o-transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
+        }
+
+        .MyButton {
+            font-family: 'Trebuchet MS';
+            font-size: 0.8em;
+            color: darkgreen;
+            border: 2px solid lightslategray;
+            height: 2em;
+            padding-left: 1em;
+            padding-right: 1em;
+            background: transparent;
+        }
+
+        .MyButton:hover {
+            border: 2px solid #6600cc;
+            background: #6600cc;
+            color: white;
+            -webkit-transition: 0.2s ease-in-out;
+            -moz-transition: 0.2s ease-in-out;
+            -o-transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
+        }
+
+        .myAnimation {
+            -webkit-transition: 0.4s ease-in-out;
+            -moz-transition: 0.4s ease-in-out;
+            -o-transition: 0.4s ease-in-out;
+            transition: 0.4s ease-in-out;
+        }
+
+        .ContentTable {
+            margin: auto;
+            padding: 0.25em;
+            font-family: 'Trebuchet MS';
+            font-size: 1.25em;
+            color: #6600cc;
+        }
+
+        .MainContents {}
+
+        .StepDone {
+            color: lightgreen;
+        }
+
+
+        .SwiperFrameBright {
+            background-color: #ffffff;
+            color: darkslateblue;
+            border: 2px solid darkslateblue;
+            border-radius: 5px;
+            box-shadow: 2px 2px 4px 1px darkslateblue;
+        }
+
+        .SwiperFrameDark {
+            background-color: darkslateblue;
+            color: white;
+            border: 2px solid darkslateblue;
+            border-radius: 5px;
+            box-shadow: 2px 2px 4px 1px darkslateblue;
+        }
+
+        .WhiteOnDark {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cockroach Labs Demos Visualized</h1>
+    <p>
+        Github repo to this project: <a target='#'
+            href='https://github.com/world2mark/ac-cl'>https://github.com/world2mark/ac-cl</a>
+    </p>
+    <p>
+        This is a demo platform that can be used to test &amp; validate CockroachDB installations in a cloud
+        environment.
+    </p>
+    <p>
+        The purpose of this project is to demonstrate technical skills in deploying the database as a 3 node cluster
+        managed by OpenShift.
+    </p>
+    <!-- Slider main container -->
+    <div style="width: 1000px; height: 450px; margin: auto; position: relative;">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <% for(const slide of Slides) { %>
+                    <%- slide %>
+                        <% }; %>
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div style='padding: 1em;font-size: 0.75em; color:darkgray;'>
+        <table style='margin: auto;'>
+            <tr>
+                <td>
+                    <img src='/Images?id=cl' style='height: 64px' />
+                </td>
+                <td style='padding-left: 2em;'>
+                    <a href='/Reset'>Click to reset DB connections &amp; client interface</a>
+                    <br /> Last Updated: May 27, 2022, Mark Zlamal, Cockroach Labs
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

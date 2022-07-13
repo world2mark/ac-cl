@@ -1,0 +1,28 @@
+<div class="swiper-slide SwiperFrameDark">
+    <script src='/basic_ops?id=client.js'></script>
+    <h3>direct SQL operation</h3>
+    <table class='ContentTable'>
+        <tr>
+            <td class='WhiteOnDark'>run SQL</td>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td style='width:100%'><textarea id='SQLStmt' class='MyTextArea' placeholder='select * ...' cols='68'
+                                rows='4'></textarea></td>
+                        <td><input id='SQLRun' style='width: 4em' class='MyButtonField' type='text' value='Run' readonly></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class='WhiteOnDark'>results from query</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea id='SQLResults' class='MyTextArea' cols='80' rows='8'></textarea>
+            </td>
+        </tr>
+    </table>
+</div>
