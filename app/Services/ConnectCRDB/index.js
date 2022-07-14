@@ -16,7 +16,7 @@ const CRDB = require('../../CRDB');
 
 async function ConnectToDB(req, res) {
     if (req.MyGlobals.MyConns) {
-        for (myConn of req.MyGlobals.MyConns) {
+        for (const myConn of req.MyGlobals.MyConns) {
             await myConn.release();
             delete req.MyGlobals.MyConn;
         };

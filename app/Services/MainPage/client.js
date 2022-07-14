@@ -10,7 +10,7 @@ function FetchPost(URL, params) {
             dataType: 'json',
             success: dataRes => {
                 if (dataRes.Error) {
-                    reject(new Error(dataRes.Message));
+                    reject(new Error(`${dataRes.Message}\n${dataRes.Stack}`));
                 } else {
                     resolve(dataRes);
                 };
