@@ -8,10 +8,13 @@ const { Pool } = require('pg');
 exports.Connect = async (CS, CA_CRT) => {
     const config = {
         connectionString: CS,
-        ssl: {
+    };
+
+    if(CA_CRT) {
+        config.ssl = {
             rejectUnauthorized: false,
             ca: CA_CRT
-        }
+        };
     };
 
     const pool = new Pool(config);
