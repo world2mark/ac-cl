@@ -53,7 +53,4 @@ $(() => {
     const WritesBlockDemoTable = $('#writes_block_demo');
     WritesBlockDemoTable.append(myRowString.join(''));
 
-
-    $('#SQLRun').click(() => RunSQL());
-
 });
