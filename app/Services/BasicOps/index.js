@@ -22,10 +22,10 @@ exports.HandleRequest = (req, res) => {
             return res.end(ClientJS);
         };
         case 'RunSQL': {
-            if (!req.MyGlobals.MyConns) {
+            if (!req.MyGlobals.MyPool) {
                 throw new Error('Please connect first');
             };
-            return CRDB.RunSQL(req.MyGlobals.MyConns[0], req.MyFields.get('SQLStmt')).then(sqlResults => {
+            return CRDB.RunSQL(req.MyGlobals.MyPool, req.MyFields.get('SQLStmt')).then(sqlResults => {
                 res.end(JSON.stringify(sqlResults));
             }).catch(err => {
                 res.end(JSON.stringify({

@@ -14,22 +14,11 @@ const CRDB = require('../../CRDB');
 
 
 
-async function ConnectToDB(req, res) {
-    if (req.MyGlobals.MyConns) {
-        for (const myConn of req.MyGlobals.MyConns) {
-            try {
-                await myConn.release();
-            } catch (err) {
-                // often connection is already released (inactivity)
-            };
-            delete req.MyGlobals.MyConn;
-        };
-    };
-
+async function CreatePGPool(req, res) {
     const ConnStr = req.MyFields.get('ConnectionString');
     const CRTData = req.MyFields.get('CRTData');
 
-    req.MyGlobals.MyConns = await CRDB.Connect(ConnStr, CRTData);
+    req.MyGlobals.MyPool = await CRDB.CreatePool(ConnStr, CRTData);
 
     res.end(JSON.stringify({
         Success: true
@@ -45,7 +34,7 @@ exports.HandleRequest = async (req, res) => {
             res.setHeader('content-type', 'text/javascript');
             return res.end(ClientJS);
         };
-        case 'connect': return await ConnectToDB(req, res);
+        case 'connect': return await CreatePGPool(req, res);
     };
 
     res.end();
