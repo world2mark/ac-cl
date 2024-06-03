@@ -7,7 +7,6 @@
     },
     "dependencies": {
         "ejs": "latest",
-        "formidable": "latest",
         "pg": "^8.7.1"
     },
     "engines": {
