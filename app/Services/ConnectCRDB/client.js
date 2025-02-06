@@ -11,7 +11,8 @@ $(() => {
 
         FetchPost('/connect_crdb?id=connect', {
             ConnectionString: $('#CRDB_Connection_String').val(),
-            CRTData: $('#ClientRootCRT').val()
+            CRTData: $('#ClientRootCRT').val(),
+            SSLEnabled: $('#ssl_enabled_dom').prop('checked')
         }).then(dataJSON => {
             alert('Connected!');
         }).catch(err => {

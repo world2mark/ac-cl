@@ -1,9 +1,13 @@
-<div class="swiper-slide SwiperFrameBright">
+<div class='swiper-slide SwiperFrameBright'>
     <script src='/connect_crdb?id=client.js'></script>
     <h3>connect to your CockroachDB instance</h3>
     <table class='ContentTable'>
         <tr>
             <td>Paste your node.crt (optional)</td>
+        </tr>
+        <tr>
+            <td><input type='checkbox' id='ssl_enabled_dom' name='ssl_enabled_box' value='Enable SSL'>
+                <label for='ssl_enabled_dom'>Require SSL</label></td>
         </tr>
         <tr>
             <td>

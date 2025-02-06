@@ -16,9 +16,10 @@ const CRDB = require('../../CRDB');
 
 async function CreatePGPool(req, res) {
     const ConnStr = req.MyFields.get('ConnectionString');
+    const SSLEnabled = req.MyFields.get('SSLEnabled') === 'true';
     const CRTData = req.MyFields.get('CRTData');
 
-    req.MyGlobals.MyPool = await CRDB.CreatePool(ConnStr, CRTData);
+    req.MyGlobals.MyPool = await CRDB.CreatePool(ConnStr, SSLEnabled, CRTData);
 
     res.end(JSON.stringify({
         Success: true
@@ -62,6 +63,6 @@ exports.Reset = () => {
 
 exports.CreateEJSOutput = (req, res) => {
     return MyEJSTemplate({
-        ConnectionString: 'postgresql://mark:zlamal@crlMBP-C02FL0LJMD6TMzE1.local:26257/defaultdb'
+        ConnectionString: 'postgresql://root@127.0.0.1:26257/defaultdb?sslmode=disable'
     });
 };
